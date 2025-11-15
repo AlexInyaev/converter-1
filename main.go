@@ -10,5 +10,5 @@ const (
 func main() {
 	fromEURtoRUB := fromUSDtoRUB / fromUSDtoEUR
 
-	fmt.Printf("Из EUR в RUB: %.2f", fromEURtoRUB)
+	fmt.Printf("Конвертация из EUR в RUB: %.2f", fromEURtoRUB)
 }
