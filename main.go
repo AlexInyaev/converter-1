@@ -24,7 +24,7 @@ func getDataFromUser() (float64, string, string) {
 	currencySetString := convertArrToString(currencySet)
 
 	// Ввод первой валюты
-	fmt.Print("Введите валюту для конвертации: ", currencySetString)
+	fmt.Println("Введите валюту для конвертации: ", currencySetString)
 
 	for {
 		_, err := fmt.Scan(&currencyFrom)
@@ -41,12 +41,14 @@ func getDataFromUser() (float64, string, string) {
 		}
 	}
 
-	fmt.Println("Введите количество единиц :  ")
-
-	_, err := fmt.Scan(&amount)
-	if err != nil {
-		fmt.Printf("Некоректный ввод вы ввели %v но необхадимо ввести целое или дробное число", amount)
-
+	for {
+		fmt.Println("Введите количество единиц :  ")
+		_, err := fmt.Scan(&amount)
+		if err != nil {
+			fmt.Printf("Некоректный ввод  необхадимо ввести целое или дробное число\n")
+			continue
+		}
+		break
 	}
 
 	// Ввод второй валюты
@@ -60,7 +62,7 @@ func getDataFromUser() (float64, string, string) {
 	availableCurrencySetString := convertArrToString(availableCurrencySetTo)
 	fmt.Printf("Введите валюту назначения  : %s\n", availableCurrencySetString)
 	for {
-		_, err = fmt.Scan(&currencyTo)
+		_, err := fmt.Scan(&currencyTo)
 		currencyTo = strings.ToLower(currencyTo)
 		if err != nil {
 			log.Fatalln(err)
