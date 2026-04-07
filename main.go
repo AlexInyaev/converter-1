@@ -45,7 +45,7 @@ func getDataFromUser() (float64, string, string) {
 
 	_, err := fmt.Scan(&amount)
 	if err != nil {
-		log.Fatalln(err)
+		fmt.Printf("Некоректный ввод вы ввели %v но необхадимо ввести целое или дробное число", amount)
 
 	}
 
